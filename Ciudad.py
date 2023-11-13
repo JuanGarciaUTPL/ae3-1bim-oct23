@@ -1,11 +1,12 @@
 # archivo Ciudad.py
 
-from comun import get_conn
+from bd_ciudades import conn_ciu
 
-conn_ciudad = get_conn()
+# creo cursor
 
+cursorCiu = conn_ciu.cursorCiu()
 
-cursorCiu = conn_ciudad.cursorCiu()
+# creo tabla
 
 ciudad_sql = 'CREATE TABLE Ciudad (nombre TEXT, provincia TEXT, habitantes INTEGER)'
 

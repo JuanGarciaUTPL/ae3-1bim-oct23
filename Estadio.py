@@ -1,7 +1,5 @@
 # archivo Estadio.py
 
-global conn_estadio
-
 from comun import get_conn
 
 conn_estadio = get_conn()

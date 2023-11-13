@@ -2,4 +2,4 @@
 
 import sqlite3
 
-conn = sqlite3.connect('bd_tareaAE3.db')
+conn_ciu = sqlite3.connect('bd_ciudades.db')
