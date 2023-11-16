@@ -1,45 +1,23 @@
 """
-	Crear entidades en la base de datos
+    Crear entidades
 """
 
-#primero para Ciudad
+from bd_tareaAE3 import conn
 
-from Ciudad import conn_ciudad
+# creo cursor.
 
-# creo "cursor" para ejecutar commandos SQL
+cursor = conn.cursor()
 
-cursorCiu = conn_ciudad.cursorCiu()
+# Crear tabla Ciudad
 
-# creo tabla de Ciudad
+cadena_sql = 'CREATE TABLE Ciudad (nombre TEXT, provincia TEXT, habitantes INTEGER)'
 
-ciudad_sql = 'CREATE TABLE Ciudad (nombre TEXT, provincia TEXT, habitantes INTEGER)'
+# Crear tabla Estadio
 
-# ejecutar SQL ciudad
+cadena_sql = 'CREATE TABLE Estadio (nombreEstadio TEXT, equipo TEXT, capacidad INTEGER)'
 
-cursorCiu.execute(ciudad_sql)
+# ejecutar
+cursor.execute(cadena_sql)
 
-#cerrando
-
-cursorCiu.close()
-
-
-
-#Segundo para Estadio
-
-from Estadio import conn_estadio
-
-# creo "cursor" para ejecutar commandos SQL
-
-cursorEst = conn_estadio.cursorEst()
-
-# creo tabla de Estadio
-
-estadio_sql = 'CREATE TABLE Estadio (nombre TEXT, club TEXT, capacidad INTEGER)'
-
-# ejecutar SQL estadio
-
-cursorEst.execute(estadio_sql)
-
-#cerrando
-
-cursorEst.close()
+# cerrar
+cursor.close()
