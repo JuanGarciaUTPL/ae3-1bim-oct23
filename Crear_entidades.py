@@ -8,16 +8,22 @@ from bd_tareaAE3 import conn
 
 cursor = conn.cursor()
 
-# Crear tabla Ciudad
+# Lista de tablas a crear
 
-cadena_sql = 'CREATE TABLE Ciudad (nombre TEXT, provincia TEXT, habitantes INTEGER)'
+tablas = [
+    ('Ciudad', ('nombre', 'provincia', 'habitantes')),
+    ('Estadio', ('nombreEstadio', 'capacidad', 'equipo')),
+]
 
-# Crear tabla Estadio
+for tabla in tablas:
+    nombre, columnas = tabla
 
-cadena_sql = 'CREATE TABLE Estadio (nombreEstadio TEXT, equipo TEXT, capacidad INTEGER)'
+    cadena_sql = 'CREATE TABLE {} ({})'.format(nombre, ','.join(columnas))
 
-# ejecutar
-cursor.execute(cadena_sql)
+    cursor.execute(cadena_sql)
+
+
 
 # cerrar
 cursor.close()
+
